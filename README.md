@@ -1,15 +1,3 @@
-# ✨AlphaShop - React
-
-![](public/screenshot-01.JPG)
-
-## 👋 Welcome
-
-這是一份基於 React 框架製作的「結帳畫面」。
-
-## ✨ Features
-
-使用者可以逐步填寫表單，共分為 3 個步驟：寄送地址, 運送方式, 付款資訊
-
 ## ✨ Start the project
 
 1.  確認已經安裝 node.js 與 npm
