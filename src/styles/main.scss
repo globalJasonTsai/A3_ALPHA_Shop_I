@@ -1,0 +1,35 @@
+@import "./reset.scss";
+@import "./base.scss";
+
+@import "component/Header/header.scss";
+@import "component/Main/stepProgress.scss";
+@import "component/Main/form.scss";
+@import "component/Main/register.scss";
+@import "component/Cart/cart.scss";
+@import "component/Main/progressControl.scss";
+@import "component/Footer/footer.scss";
+
+main.site-main {
+  padding-left: var(--site-edge-margin);
+  padding-right: var(--site-edge-margin);
+  padding-bottom: 40px;
+  background-color: inherit;
+
+  .main-container {
+    display: flex;
+    position: relative;
+    max-width: 1100px;
+    margin: 0 auto;
+    flex-wrap: wrap;
+    justify-content: space-between;
+  }
+}
+
+@media screen and (min-width: $screen-break-point) {
+  main.site-main {
+    padding-bottom: 0;
+    .main-container {
+      margin-top: 80px;
+    }
+  }
+}
