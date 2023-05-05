@@ -7,7 +7,6 @@ import ProgressControl from './ProgressControl/ProgressControl'
 
 const Main = ({ icons }) => {
   return (
-    <>
       <main className='site-main'>
         <div className='main-container'>
           <Register icons={icons} />
@@ -15,7 +14,6 @@ const Main = ({ icons }) => {
           <ProgressControl icons={icons} />
         </div>
       </main>
-    </>
   )
 }
 
