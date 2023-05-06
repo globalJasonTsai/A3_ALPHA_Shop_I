@@ -1,17 +1,19 @@
-import './reset.css'
-import './base.scss'
-import icons from './component/icons/icons.svg'
-// ---
+// import Header from "./component/Header/Header";
+// import Main from "./component/Main/Main";
+// import Footer from "./component/Footer/Footer";
 import { Header, Main, Footer } from './component'
-// ---
-function App () {
+import "./styles/main.scss"
+
+function App() {
   return (
-    <div className='App'>
-      <Header icons={icons} />
-      <Main icons={icons} />
-      <Footer icons={icons} />
+    <div>
+      <div className="App">
+        <Header />
+        <Main />
+      </div>
+        <Footer />
     </div>
-  )
+  );
 }
 
-export default App
+export default App;
