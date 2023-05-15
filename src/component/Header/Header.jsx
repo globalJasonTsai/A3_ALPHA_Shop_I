@@ -17,7 +17,7 @@ export default function Header() {
             className={styles.navbarToggle}
             type="checkbox"
           />
-          <label for="navbar-toggle" className={styles.burgerContainer}>
+          <label htmlFor="navbar-toggle" className={styles.burgerContainer}>
             <IconToggle className={`${styles.iconToggle} ${styles.cursorPoint}`} />
           </label>
 
