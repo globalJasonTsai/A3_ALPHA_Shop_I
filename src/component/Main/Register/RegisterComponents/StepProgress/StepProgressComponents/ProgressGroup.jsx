@@ -8,7 +8,7 @@ export default function ProgressGroup() {
     <>
       {phaseInfos.map((info) => {
         return (
-          <div key={info.number}>
+          <li key={info.number}>
             <span className={styles.progressGroup} data-phase={info.dataPhase}>
               <span className={styles.progressIcon}>
                 <span className={styles.text}>{info.number}</span>
@@ -26,7 +26,7 @@ export default function ProgressGroup() {
             ) : (
               ""
             )}
-          </ div>
+          </ li>
         );
       })}
     </>
