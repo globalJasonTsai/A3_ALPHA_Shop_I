@@ -1,36 +1,24 @@
-// import Header from "./component/Header/Header";
-// import Main from "./component/Main/Main";
-// import Footer from "./component/Footer/Footer";
-import "./App.css";
-import { Header, Main, Footer } from './component'
-import "./styles/main.scss"
-import { useState } from "react";
-
-let initialStepPage = 1;
+// import "./App.css";
+// import "./styles/reset.scss";
+// import "./styles/base.scss";
+// import { Header, Main, Footer } from './components'
+// import "./styles/main.scss"
+// import { useState } from "react";
+import { Header, Main, Footer } from './components'
+import "./styles/reset.scss";
+import "./styles/base.scss";
 
 function App() {
-  const [stepPage, setStepPage] = useState(initialStepPage);
-
-  function handleChangePage(buttonValue) {
-    let currentStepPage = stepPage;
-
-    if (buttonValue === "next") {
-      currentStepPage = currentStepPage + 1;
-    } else if (buttonValue === "prev") {
-      currentStepPage = currentStepPage - 1;
-    }
-
-    setStepPage(currentStepPage);
-  }
+  
 
   return (
-    <div className="App">
+    <div>
       <Header />
-      <Main stepPage={stepPage} onPage={handleChangePage} />
+      <Main />
       <Footer />
     </div>
   );
 }
 
-//export
 export default App;
+
