@@ -1,65 +1,73 @@
-//import cart components
-import ProductList from "./CartComponents/ProductList"
-import ShippingPrice from "./CartComponents/ShippingPrice";
-import TotalPrice from "./CartComponents/TotalPrice";
-//import styles
-import styles from "./Cart.module.scss"
-//import products data
-import { products } from "./CartComponents/ProductsData"
-//import useState
-import { useState } from "react"
+import styles from './Cart.module.scss'
+import { useContext } from 'react'
+import { AppContext } from 'context/AppContext'
+import { CartContext } from 'context/CartContext'
+import { MainContext } from 'context/MainContext'
 
-
-//export
-export default function Cart() {
- const [productsData, setProductsData] = useState(products);
-
-
-function handlePlusClick(productId) {
-  setProductsData(
-    productsData.map((product) => {
-      if (product.id === productId) {
-        return {
-          ...product,
-          quantity: product.quantity + 1,
-        };
-      } else {
-        return product;
-      }
-    })
-  );
+//  ---------------------------------------------------------
+const ProductListItem = ({ item }) => {
+  const { icons } = useContext(AppContext)
+  const { onCartItemsChange } = useContext(CartContext)
+  return (
+    <div className={`${styles.productContainer} col col-12`} data-count='0' data-price={item.price}>
+      <img className={styles.imgContainer} src={item.img} alt={item.name} />
+      <div className={styles.productInfo}>
+        <div className={styles.productName}>{item.name}</div>
+        <div className={styles.productControlContainer}>
+          <div className={styles.productControl}>
+            <span
+              onClick={() => {
+                onCartItemsChange?.({ id: item.id, quantity: item.quantity - 1 })
+              }}
+            >
+              <svg className={`${styles.productAction} minus`}>
+                <use xlinkHref={`${icons}#svg-icon-minus`} />
+              </svg>
+            </span>
+            <span className={styles.productCount}>{item.quantity}</span>
+            <span
+              onClick={() => {
+                onCartItemsChange?.({ id: item.id, quantity: item.quantity + 1 })
+              }}
+            >
+              <svg className={`${styles.productAction} plus`}>
+                <use xlinkHref={`${icons}#svg-icon-plus`} />
+              </svg>
+            </span>
+          </div>
+        </div>
+        <div className={styles.price}>{item.price * item.quantity}</div>
+      </div>
+    </div>
+  )
 }
 
-function handleMinusClick(productId) {
-  let nextProducts = productsData.map((product) => {
-      if (product.id === productId) {
-        return {
-          ...product,
-          quantity: product.quantity - 1,
-        };
-      } else {
-        return product;
-      }
-    })
-
-  nextProducts = nextProducts.filter((product) => product.quantity > 0);
-
-  setProductsData(nextProducts);
-    
-}
+const Cart = () => {
+  const { items, count } = useContext(CartContext)
+  const { shippingCost } = useContext(MainContext)
 
   return (
     <section className={`${styles.cartContainer} col col-lg-5 col-sm-12`}>
       <h3 className={styles.cartTitle}>購物籃</h3>
-
-      <ProductList
-        productsData={productsData}
-        onPlusClick={handlePlusClick}
-        onMinusClick={handleMinusClick}
-      />
-      <ShippingPrice />
-      <TotalPrice productsData={productsData} />
+      <section className={`${styles.productList} col col-12`} data-total-price='0'>
+        {items.map((item) => (
+          <ProductListItem
+            item={item}
+            key={item.id}
+          />
+        ))}
+      </section>
+      {/* --------- 結帳  -------- */}
+      <section className={`${styles.cartInfo} ${styles.shipping} col col-12`}>
+        <div className={styles.text}>運費</div>
+        <div className={styles.price}>{shippingCost}</div>
+      </section>
+      <section className={`${styles.cartInfo} ${styles.total} col col-12`}>
+        <div className={styles.text}>小計</div>
+        <div className={styles.price}>${count}</div>
+      </section>
     </section>
-  );
+  )
 }
 
+export default Cart

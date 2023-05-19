@@ -13,20 +13,8 @@
     border-color: var(--input-border);
   }
 }
-.row {
-  justify-content: space-between;
-}
-
 .selectGroup {
   margin-top: 24px;
-}
-
-
-.sm-3 {
-  width: calc((100% / 2) - 10px);
-}
-
-.selectGroup {
   .selectLabel {
     font-weight: bold;
     font-size: 12px;
@@ -70,16 +58,14 @@
   }
 }
 
+.row {
+  justify-content: space-between;
+}
+
 h3.formTitle {
   display: flex;
   flex: 0 0 100%;
   font-weight: 700;
   font-size: 24px;
   line-height: 24px;
-}
-
-@media screen and (max-width: 749.5px) {
-  .selectGroup {
-    width: 100%;
-  }
 }

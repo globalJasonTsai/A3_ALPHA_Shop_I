@@ -1,16 +1,15 @@
+// --- varaible
 $screen-break-point: 749.5px;
-
-.progressControlContainer {
+// --- Style
+section.progressControlContainer {
   position: absolute;
   left: 0px;
   right: 0px;
   bottom: 0px;
 }
-
 section.buttonGroup {
   padding-top: 24px;
   border-top: 1px solid #e6e6eb;
-
   button {
     display: flex;
     align-items: center;
@@ -20,7 +19,6 @@ section.buttonGroup {
     border-radius: 8px;
     border-width: 0px;
     padding: 0px;
-    position: relative;
 
     & > svg {
       width: 24px;
@@ -32,7 +30,6 @@ section.buttonGroup {
       line-height: 20px;
       font-weight: 400;
       color: #000000;
-      cursor: pointer;
 
       > svg {
         margin-right: 12px;
@@ -46,7 +43,6 @@ section.buttonGroup {
       background: var(--pink);
       color: #ffffff;
       margin-left: auto;
-      cursor: pointer;
 
       > svg {
         margin-left: 12px;
@@ -54,11 +50,7 @@ section.buttonGroup {
     }
   }
 }
-
-.addressButtonGroup {
-  justify-content: flex-end;
-}
-
+// --- RWD
 @media screen and (max-width: $screen-break-point) {
   section.progressControlContainer {
     position: relative;
@@ -70,7 +62,7 @@ section.buttonGroup {
       width: 156px;
     }
 
-    &[data-phase="address"] {
+    &[dataphase="address"] {
       button.next {
         width: 100%;
       }
