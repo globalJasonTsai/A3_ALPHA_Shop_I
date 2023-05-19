@@ -10,7 +10,6 @@ const PhaseItem = ({ id, name, text, period, price }) => {
         id={id}
         type='radio'
         name={name}
-        defaultChecked={true}
         onClick={() => { onShippingOption?.({ price }) }}
       />
       <div className={styles.radioInfo}>
