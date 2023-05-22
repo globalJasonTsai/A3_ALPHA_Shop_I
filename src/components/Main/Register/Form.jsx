@@ -13,10 +13,10 @@ const Form = () => {
         <AddressPhase />
       </div>
       <div className={styles.shipping} dataphase={step}>
-        <ShippingPhase />
+        <CreditPhase/>
       </div>
       <div className={styles.creddit} dataphase={step}>
-        <CreditPhase />
+        <ShippingPhase />
       </div>
     </section>
   )
